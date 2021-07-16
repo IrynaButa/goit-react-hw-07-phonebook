@@ -4,8 +4,8 @@ import shortid from "shortid";
 import styles from "./Form.module.css";
 import { connect } from 'react-redux';
 //import * as actions from '../../redux/contacts-actions';
-import contactsOperations from '../../redux/contacts-operations';
-import contactsSelectors from '../../redux/contacts-selectors';
+import  * as contactsOperations from '../../redux/contacts-operations';
+import * as contactsSelectors from '../../redux/contacts-selectors';
 //import IconButton from '../IconButton/IconButton';
 import { ReactComponent as Add } from "../icons/add.svg";
 
