@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Filter.module.css";
 import { connect } from 'react-redux';
-import * as actions from '../../redux/contacts-actions';
-
+import { changeFilter} from '../../redux/contacts-actions';
+//import contactsOperations from '../../redux/contacts-operations';
+import contactsSelectors from '../../redux/contacts-selectors';
 
 const Filter = ({ filter, onChangeFilter }) => (
   <div className={styles.form}>
@@ -18,12 +19,12 @@ Filter.propTypes = {
   onChangeFilter: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
-  filter: state.contacts.filter,
+  filter: contactsSelectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   onChangeFilter: ({ target: { value } }) =>
-    dispatch(actions.changeFilter(value)),
+    dispatch(changeFilter(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
