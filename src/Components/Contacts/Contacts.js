@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Contacts.module.css";
 import { connect } from 'react-redux';
-import * as actions from '../../redux/contacts-actions';
+import contactsOperations from '../../redux/contacts-operations';
 import IconButton from "../IconButton/IconButton";
 import { ReactComponent as Delete } from "../icons/trash.svg";
 import { ReactComponent as Phone } from "../icons/phone.svg";
@@ -39,7 +39,7 @@ Contacts.propTypes = {
   ),
 };
 const mapDispatchToProps = dispatch => ({
-  onDeleteContact: idContact => dispatch(actions.deleteContact(idContact)),
+  onDeleteContact: idContact => dispatch(contactsOperations.deleteContact(idContact)),
 });
 
 export default connect(null, mapDispatchToProps)(Contacts);

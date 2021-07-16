@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import shortid from "shortid";
 import styles from "./Form.module.css";
 import { connect } from 'react-redux';
-import * as actions from '../../redux/contacts-actions';
+//import * as actions from '../../redux/contacts-actions';
+import contactsOperations from '../../redux/contacts-operations';
 
 //import IconButton from '../IconButton/IconButton';
 import { ReactComponent as Add } from "../icons/add.svg";
@@ -82,7 +83,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onAddContact: ({ name, number }) =>
     dispatch(
-      actions.addContact({
+      contactsOperations.addContact({
         name,
         number,
       }),
