@@ -24,11 +24,14 @@ const App = ({ filter, items, dispatch, loading }) => {
 
         <h2>Contacts</h2>
          {loading && <h2>Loading...</h2>}
-      {items[0] ? <Filter /> : <h2>No contact added </h2>}
+      {items[0] ? <Filter /> : <h2 >No contact added </h2>}
        {/* <Filter value={filter} onChangeFilter={onChangeFilter} /> */}
-      { visibleContacts[0] && <Contacts
+      {visibleContacts[0] && <Contacts
           contacts={visibleContacts}  
       />}
+      {items[0] && !visibleContacts[0] && (
+          <h2>No contact found </h2>
+        )}
 
       {/* <Contacts
           contacts={visibleContacts}
